@@ -1,0 +1,21 @@
+.mainTitle {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.listContainer {
+
+  .list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style-type: none;
+  }
+}
+
+.CardsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
