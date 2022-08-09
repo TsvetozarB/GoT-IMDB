@@ -10,8 +10,7 @@ const Button = ( { children, onClickHandle, keys, index } ) => {
   return (
     <li 
       onClick={onClicked} 
-      className={Styles.element} 
-      key={keys} 
+      className={Styles.element}
       index={index}
     >
       {children}
