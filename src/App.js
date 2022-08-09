@@ -52,7 +52,7 @@ function App() {
           {tvSeriesData?.data?.tvSeriesInfo?.seasons.map((el, index) => {
             return <Button 
                     onClickHandle={onClickHandle} 
-                    keys={el}
+                    key={el}
                     index={index}
                   >
                     {'Season ' + el}
