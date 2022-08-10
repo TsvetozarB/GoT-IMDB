@@ -8,15 +8,6 @@ const EpisodeCard = ({ episode }) => {
 
   const [fav, setFav] = useState(false);
   const [localStorageFav, setLocalStorageFav] = useState([]);
-  
-  const onclickHandle = () => {
-    if(fav) {
-      setFav(false);
-    } else {
-      setFav(true);
-    }
-    changeFavoriteStatusHandler();
-  }
 
   const addFavorite = (favEpisode) => {
     setLocalStorageFav(prevArray => [...prevArray, favEpisode]);
@@ -27,14 +18,14 @@ const EpisodeCard = ({ episode }) => {
       currentFav.filter((episodeId) => episodeId !== favEpisode)
     );
   }
-
-  const episodeFavorite = localStorageFav.includes(episode.episodeNumber);
   
   function changeFavoriteStatusHandler() {
-    if (episodeFavorite) {
+    if (localStorageFav.includes(episode.episodeNumber)) {
       removeFavorite(episode.episodeNumber);
+      setFav(false);
     } else {
       addFavorite(episode.episodeNumber);
+      setFav(true);
     }
   }
 
@@ -50,7 +41,7 @@ const EpisodeCard = ({ episode }) => {
       <div>
         <div className={Styles.titleAndFav}>
           <h3 className={Styles.title}>{episode.title}</h3>
-          <FontAwesomeIcon className={Styles.favorite} style={ fav ? {color: 'red'} : {color: 'black'}} icon={faStar} onClick={onclickHandle}/>
+          <FontAwesomeIcon className={Styles.favorite} style={ fav ? {color: 'red'} : {color: 'black'}} icon={faStar} onClick={changeFavoriteStatusHandler}/>
         </div>
         <p className={Styles.rating}>Season {episode.seasonNumber} - Episode {episode.episodeNumber} - Rating: {episode.imDbRating}/10</p>
         <p className={Styles.description}>{episode.plot}</p>
