@@ -16,9 +16,19 @@ function App() {
       //k_8na716vt
       //k_8ih2l1i2
       try {
-        const response = await axios.get(`https://imdb-api.com/en/API/SeasonEpisodes/k_8ih2l1i2/tt0944947/${clickedSeason}`);
-        console.log(response);
+        const response = await axios.get(`https://imdb-api.com/en/API/SeasonEpisodes/k_8na716vt/tt0944947/${clickedSeason}`);
         setSeasonsData(response);
+      } catch (err) {
+      }
+    }
+    
+    const getTVSeriesData = async () => {
+      //k_w8pwftnp
+      //k_8na716vt
+      //k_8ih2l1i2
+      try {
+        const response = await axios.get('https://imdb-api.com/en/API/Title/k_8na716vt/tt0944947');
+        setTVSeriesData(response);
       } catch (err) {
       }
     }
@@ -32,17 +42,7 @@ function App() {
     setClickedSeason(seasonNumber + 1);
   }
 
-  const getTVSeriesData = async () => {
-    //k_w8pwftnp
-    //k_8na716vt
-    //k_8ih2l1i2
-    try {
-      const response = await axios.get('https://imdb-api.com/en/API/Title/k_8ih2l1i2/tt0944947');
-      console.log(response);
-      setTVSeriesData(response);
-    } catch (err) {
-    }
-  }
+  
 
   return (
     <div>

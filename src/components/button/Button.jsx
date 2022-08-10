@@ -1,7 +1,7 @@
 import React from 'react';
 import Styles from './Button.module.scss';
 
-const Button = ( { children, onClickHandle, keys, index } ) => {
+const Button = ( { children, onClickHandle, index } ) => {
 
   const onClicked = () => {
     onClickHandle(index);
@@ -10,7 +10,7 @@ const Button = ( { children, onClickHandle, keys, index } ) => {
   return (
     <li 
       onClick={onClicked} 
-      className={Styles.element}
+      className={Styles.element}  
       index={index}
     >
       {children}
